@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+body,
+input,
+button {
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  height: 100px;
+  background-color: #00875b;
+}
+
+header img {
+  display: block;
+  height: 100%;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+main {
+  width: 1200px;
+  margin: 40px auto;
+}
+
+main section {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  margin: auto;
+}
+
+main section h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  font-size: 18px;
+  background-color: #00875b;
+  color: #FFF;
+}
+
+main section form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+main section form label {
+  font-weight: 400;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+main section form label:first-of-type {
+  margin-top: 20px;
+}
+
+main section form input {
+  padding: 8px;
+  border: 1px solid rgb(138, 138, 138);
+  margin-bottom: 24px;
+  background-color: #FFF;
+  height: 32px;
+  font-size: 14px;
+}
+
+main section form input:focus {
+  border: 1px solid rgb(138, 138, 138);
+}
+
+main section form input:invalid {
+  box-shadow: none;
+}
+
+main section form button {
+  align-self: center;
+  border: none;
+  background-color: #00875b;
+  padding: 8px 16px;
+  color: #FFF;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+main section form button:hover {
+  cursor: pointer;
+  background-color: #00774f;
+}
+
+main section form ul {
+  list-style: none;
+}
+
+main section form ul li {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #ffcc00;
+  font-weight: 500;
+}
+
+main section form ul li::before {
+  margin-right: 8px;
+  content: "⚠️";
+}

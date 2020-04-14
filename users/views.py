@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import UserForm
@@ -18,6 +19,7 @@ def detail(request, slug):
     })
 
 
+@login_required
 def new(request):
     if request.method == 'POST':
         form = UserForm(request.POST, request.FILES)
@@ -37,6 +39,7 @@ def new(request):
         })
 
 
+@login_required
 def update(request, slug):
     user = get_object_or_404(User, slug=slug)
 
@@ -58,6 +61,7 @@ def update(request, slug):
         })
 
 
+@login_required
 def delete(request, slug):
     user = get_object_or_404(User, slug=slug)
     user.delete()

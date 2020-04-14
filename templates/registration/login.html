@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autenticação</title>
+  <link rel="stylesheet" href="{% static 'styles/login.css' %}">
+</head>
+
+<body>
+
+  <header>
+    <a href="{% url 'index' %}">
+      <img src="{% static 'django.png' %}" alt="django" />
+    </a>
+  </header>
+
+  <main>
+    <section>
+      <h2>Autenticação</h2>
+      <form method="POST">
+
+        {% csrf_token %}
+        {{ form }}
+
+        <button type="submit">Acessar</button>
+      </form>
+    </section>
+  </main>
+
+</body>
+
+</html>
