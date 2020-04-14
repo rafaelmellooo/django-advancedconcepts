@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+body,
+input,
+button {
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+article:hover {
+  background-color: rgb(243, 243, 243);
+}
+
+header {
+  height: 100px;
+  background-color: #00875b;
+  display: flex;
+  padding-right: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header img {
+  display: block;
+  height: 100%;
+}
+
+#new {
+  color: #FFF;
+  height: 50px;
+  width: 50px;
+  transition: color 0.3s;
+}
+
+a:hover #new {
+  color: rgb(216, 216, 216);
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+main {
+  width: 1200px;
+  margin: 20px auto;
+}
+
+main section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+main section article {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+div.avatar-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+div.avatar-group div {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+img.avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: block;
+  margin-right: 10px;
+}
+
+#update,
+#delete {
+  width: 24px;
+  height: 24px;
+  color: #FFF;
+  padding: 4px;
+  border-radius: 4px;
+  transition: width 0.2s, height 0.2s;
+}
+
+#update {
+  background-color: rgb(0, 112, 103);
+}
+
+#update:hover,
+#delete:hover {
+  width: 28px;
+  height: 28px;
+}
+
+#delete {
+  margin-left: 8px;
+  background-color: rgb(255, 0, 55);
+}
+
+div.email h2,
+div.bio h2 {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+div.email p {
+  font-size: 14px;
+  margin-bottom: 24px;
+  line-height: 24px;
+}
+
+div.bio p {
+  font-size: 14px;
+  line-height: 24px;
+}

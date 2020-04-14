@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail</title>
+  <link rel="stylesheet" href="{% static 'styles/detail.css' %}">
+</head>
+
+<body>
+
+  <header>
+    <a href="{% url 'index' %}">
+      <img src="{% static 'django.png' %}" alt="django" />
+    </a>
+  </header>
+
+  <main>
+    <section>
+      <img src="{{ user.avatar_url }}" alt="{{ user.first_name }} {{ user.last_name }}" />
+
+      <article>
+        <div class="name">
+          <h2>Nome</h2>
+          <p>{{ user.first_name }} {{ user.last_name }}</p>
+        </div>
+
+        <div class="age">
+          <h2>Idade</h2>
+          <p>{{ user.age }} anos</p>
+        </div>
+
+        <div class="email">
+          <h2>E-mail</h2>
+          <p>{{ user.email }}</p>
+        </div>
+
+        <div class="bio">
+          <h2>Bio</h2>
+          <p>{{ user.bio }}</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+</body>
+
+</html>
