@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock title %}</title>
+  <script src="{% static 'feather.min.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'styles/base.css' %}">
+
+  {% block styles %}
+
+  {% endblock styles %}
+</head>
+
+<body>
+
+  <header>
+    <a href="{% url 'index' %}">
+      <i class="icon" data-feather="home"></i>
+    </a>
+
+
+    {% if user.is_authenticated %}
+    <a href="{% url 'logout' %}">
+      <i class="icon" data-feather="power"></i>
+    </a>
+    {% else %}
+    <a href="{% url 'login' %}">
+      <i class="icon" data-feather="log-in"></i>
+    </a>
+    {% endif %}
+
+  </header>
+
+  <main>
+    {% block content %}
+
+    {% endblock content %}
+  </main>
+
+  <script>
+    feather.replace()
+  </script>
+</body>
+
+</html>

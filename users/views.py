@@ -8,7 +8,10 @@ from .models import User
 def index(request):
     users = User.objects.all()
     return render(request, 'index.html', {
-        'users': users
+        'users': users,
+        'admin': {
+            'is_authenticated': request.user.is_authenticated
+        }
     })
 
 

@@ -1,69 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Django{% endblock title %}
+
+{% block styles %}
 {% load static %}
+<link rel="stylesheet" href="{% static 'styles/index.css' %}">
+{% endblock styles %}
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Django</title>
-  <script src="{% static 'feather.min.js' %}"></script>
-  <link rel="stylesheet" href="{% static 'styles/index.css' %}">
-</head>
+{% block content %}
+<section>
 
-<body>
+  <a id="new" href="{% url 'new-user' %}">
+    <article>
+      <i data-feather="plus-circle"></i>
+    </article>
+  </a>
 
-  <header>
-    <img src="{% static 'django.png' %}" alt="django" />
+  {% for user in users %}
+  <article>
+    <div class="avatar-group">
+      <div>
+        <a href="{% url 'user' user.slug %}">
+          <img class="avatar" src="{{ user.avatar_url }}" alt="{{ user.first_name }} {{ user.last_name }}" />
+        </a>
+        <h2>{{ user.first_name }} {{ user.last_name }} | {{ user.age }}</h2>
+      </div>
 
-    <a href="{% url 'new-user' %}">
-      <i id="new" data-feather="plus-circle"></i>
-    </a>
-  </header>
 
-  <main>
-    <section>
+      {% if admin.is_authenticated %}
+      <div>
+        <a href="{% url 'update-user' user.slug %}">
+          <i id="update" data-feather="edit"></i>
+        </a>
 
-      {% for user in users %}
-      <article>
-        <div class="avatar-group">
-          <div>
-            <a href="{% url 'user' user.slug %}">
-              <img class="avatar" src="{{ user.avatar_url }}" alt="{{ user.first_name }} {{ user.last_name }}" />
-            </a>
-            <h2>{{ user.first_name }} {{ user.last_name }} | {{ user.age }}</h2>
-          </div>
+        <a href="{% url 'delete-user' user.slug %}">
+          <i id="delete" data-feather="trash"></i>
+        </a>
+      </div>
+      {% endif %}
+    </div>
 
-          <div>
-            <a href="{% url 'update-user' user.slug %}">
-              <i id="update" data-feather="edit"></i>
-            </a>
+    <div class="email">
+      <h2>E-mail</h2>
+      <p>{{ user.email }}</p>
+    </div>
 
-            <a href="{% url 'delete-user' user.slug %}">
-              <i id="delete" data-feather="trash"></i>
-            </a>
-          </div>
-        </div>
+    <div class="bio">
+      <h2>Bio</h2>
+      <p>{{ user.bio }}</p>
+    </div>
+  </article>
+  {% endfor %}
 
-        <div class="email">
-          <h2>E-mail</h2>
-          <p>{{ user.email }}</p>
-        </div>
-
-        <div class="bio">
-          <h2>Bio</h2>
-          <p>{{ user.bio }}</p>
-        </div>
-      </article>
-      {% endfor %}
-
-    </section>
-  </main>
-
-  <script>
-    feather.replace()
-  </script>
-
-</body>
-
-</html>
+</section>
+{% endblock content %}

@@ -1,33 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  outline: none;
-  box-sizing: border-box;
-}
-
-body,
-input,
-button {
-  font-family: 'Roboto', sans-serif;
-}
-
-header {
-  height: 100px;
-  background-color: #00875b;
-}
-
-header img {
-  display: block;
-  height: 100%;
-}
-
-main {
-  width: 1200px;
-  margin: 20px auto;
-}
-
 main form {
   padding: 20px 100px;
   display: flex;
@@ -52,7 +22,7 @@ main form ul li {
   display: flex;
   align-items: center;
   font-size: 11px;
-  color: #ffcc00;
+  color: #ffc107;
   font-weight: 500;
 }
 
@@ -75,13 +45,13 @@ main form input:not([type='file']) {
 }
 
 main form input:not([type='file']):invalid {
-  box-shadow: none !important;
-  border-bottom: thin solid rgb(255, 0, 55) !important;
+  box-shadow: none;
+  border-bottom: thin solid #dc3545;
 }
 
 main form input:not([type='file']):valid {
-  box-shadow: none !important;
-  border-bottom: thin solid rgb(10, 187, 89) !important;
+  box-shadow: none;
+  border-bottom: thin solid #28a745;
 }
 
 main form textarea {
@@ -93,19 +63,19 @@ main form textarea {
 
 main form textarea:invalid {
   box-shadow: none !important;
-  border: thin solid rgb(255, 0, 55);
+  border: thin solid #dc3545;
 }
 
 main form textarea:valid {
   box-shadow: none !important;
-  border: thin solid rgb(10, 187, 89);
+  border: thin solid #28a745;
 }
 
 main form button {
   align-self: flex-end;
   display: block;
   padding: 10px 40px;
-  background-color: #00875b;
+  background-color: #6610f2;
   color: #FFF;
   font-weight: 700;
   font-size: 18px;
@@ -116,5 +86,5 @@ main form button {
 
 main form button:hover {
   cursor: pointer;
-  background-color: #005f40;
+  background-color: #560cce;
 }

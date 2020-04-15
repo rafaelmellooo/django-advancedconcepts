@@ -1,32 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Form{% endblock title %}
+
+{% block styles %}
 {% load static %}
+<link rel="stylesheet" href="{% static 'styles/form.css' %}">
+{% endblock styles %}
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Form</title>
-  <link rel="stylesheet" href="{% static 'styles/form.css' %}">
-</head>
+{% block content %}
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form }}
 
-<body>
-
-  <header>
-    <a href="{% url 'index' %}">
-      <img src="{% static 'django.png' %}" alt="django" />
-    </a>
-  </header>
-
-  <main>
-    <form method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ form }}
-
-      <button type="submit">Salvar</button>
-    </form>
-  </main>
-
-</body>
-
-</html>
+  <button type="submit">Salvar</button>
+</form>
+{% endblock content %}
