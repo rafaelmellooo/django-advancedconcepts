@@ -14,6 +14,8 @@ import os
 
 from decouple import config
 
+from dj_database_url import parse as db_url
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -29,6 +31,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = [
     'django-advancedconcepts.herokuapp.com',
+    'localhost',
 ]
 
 
@@ -81,14 +84,10 @@ WSGI_APPLICATION = 'advancedconcepts.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django_advancedconcepts',
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT'),
-    }
+    'default': config(
+        'DATABASE_URL',
+        default='sqlite:///{}'.format(os.path.join(BASE_DIR, 'db.sqlite3')),
+        cast=db_url),
 }
 
 
